@@ -1,0 +1,32 @@
+// breakponint
+
+@mixin break($break) {
+$value: map-get($breakpoints, $break);
+
+    @if $value < 767px {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+   
+    @else {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+}
+
+//hover effect
+
+@mixin bgc-with-hover ($color) {
+    background-color: $color;
+    &:hover {
+        transition: border-radius 0.5s cubic-bezier(.14,.73,.83,.17), background-color 0.5s cubic-bezier(.14,.73,.83,.17);
+        background-color: lighten($color, 15%);
+        border-radius: 50%;
+    }
+}
+
+
+
+
